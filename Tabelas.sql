@@ -23,7 +23,8 @@ CREATE TABLE usuario(
 	login		varchar(20) primary key,
 	senha		varchar(50) not null,
 	nome		varchar(80) not null,
-	categoria	char(1) not null
+	categoria	char(1) not null,
+	situacao	char(1) not null
 );
 
 CREATE TABLE projeto (
@@ -41,7 +42,8 @@ CREATE TABLE projeto (
 CREATE TABLE composto (
 	num_proj	integer references projeto (numero),
 	cod_disc	integer references disciplina (codigo),
-	desc_atividade	varchar(2000)
+	desc_atividade	varchar(2000),
+	primary key	(num_proj, cod_disc)
 );	
 
 CREATE TABLE grupo (
@@ -53,9 +55,9 @@ CREATE TABLE grupo (
 CREATE TABLE participa (
 	matricula	char(15) references aluno (matricula),
 	id_grupo	integer references grupo (id),
-	nota		numeric(3,1)
+	nota		numeric(3,1),
+	primary key	(matricula, id_grupo)
 );
-
 
 
 		
