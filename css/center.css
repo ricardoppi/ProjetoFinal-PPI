@@ -1,0 +1,10 @@
+#main {
+	width:100px;
+	height:100px;
+	position:absolute;
+	top:20%;
+	left:40%;
+	margin-top:-50px;
+	margin-left:-50px;
+	font-weight: bolder;	
+}

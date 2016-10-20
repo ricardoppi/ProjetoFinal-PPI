@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projeto Final</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/logo-nav.css" rel="stylesheet">
+	<link href="css/center.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="pagina_inicial.html">In&iacute;cio</a>
+                    </li>
+                    <li>
+                        <a href="cadUsuario.html">Cadastrar Usu&aacute;rio</a>
+                    </li>
+                    <li>
+                        <a href="cadDisciplina.html">Cadastrar Disciplina</a>
+                    </li>
+                    <li>
+                        <a href="cadAluno.html">Cadastrar Aluno</a>
+                    </li>
+                    <li>
+                        <a href="cadCurso.html">Cadastrar Curso</a>
+                    </li>
+                </ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="index.html">Entrar</a>
+					</li>
+					<li>
+						<a href="logout.php">Sair</a>
+					</li>
+				</ul>
+            </div>
+        </div>
+    </nav>
+<div id="main" class="container-fluid" >   
+   <div class="container">
+		<form class="formCadUsuario" method="GET" action="cadDisciplina.php">
+			<div class="row" >
+				<div class="form-group col-md-4">
+					<h2 class="form-signin-heading">Cadastrar Disciplina</h2>
+					<label for="codigo" class="sr-only">C&oacute;digo</label>
+					<input type="numeric" name="codigo" class="form-control" placeholder="CODIGO" required >
+				</div>
+			</div>		
+			<div class="row">
+				<div class="form-group col-md-4">					
+					<label for="txtNome" class="sr-only">Nome</label>
+					<input type="text"  name="txtNome"  class="form-control" placeholder="NOME DA DISCIPLINA" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">					
+					<label for="numCH">Carga hor&aacute;ria</label>
+					<input type="numeric"  name="numCH"  class="form-control" placeholder="CARGA HORARIA" required>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">
+					<button class="btn btn-lg btn-primary" type="submit">Gravar </button>
+					<button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='cadUsuario.html' ">Cancelar </button>
+				</div>
+			</div>					
+		</form>
+	</div>
+</div>	
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

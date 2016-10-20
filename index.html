@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projeto Final</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/logo-nav.css" rel="stylesheet">
+	<link href="css/center.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>	
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="logout.php">SAIR</a>
+				</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<div id="main" class="container-fluid" >   
+   <div class="container">
+		<form class="formLogin" method="GET" action="index.php">
+			<div class="row" >
+				<div class="form-group col-md-3">
+					<h2 class="form-signin-heading">Digite seu login</h2>
+					<label for="txtLogin" class="sr-only">Login</label>
+					<input type="text" name="txtLogin" class="form-control" placeholder="LOGIN" required autofocus>
+				</div>
+			</div>		
+			<div class="row">
+				<div class="form-group col-md-3">					
+					<label for="inputPassword" class="sr-only">Senha</label>
+					<input type="password" name="senha" class="form-control" placeholder="SENHA" required>
+				</div>
+			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" value="remember-me"> Lembrar Senha
+				</label>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-3">
+					<input class="btn btn-lg btn-primary" type="submit"/>
+				</div>
+			</div>					
+		</form>
+	</div>
+</div>			
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
