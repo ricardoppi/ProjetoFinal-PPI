@@ -8,10 +8,9 @@
 			echo " A disciplina " . $_GET['txtNome'] . " ja esta cadastrado(a) no sistema </p>";
 		}else {
 			$sql = "INSERT INTO disciplina VALUES " . "(" . $_GET['codigo'] . ",'" . $_GET['txtNome'] . "'," . $_GET['numCH'] . ")";
-			echo $sql;
 			$res = pg_query($con, $sql);
 			$qtd = pg_affected_rows($res);
-			echo "<br>Foi inserido " . $qtd . " Linha";
+			header ("location: cad_Disciplina.php");
 		}
 	}else{
 		echo "Falha da Conexao";

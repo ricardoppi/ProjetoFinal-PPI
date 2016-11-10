@@ -8,10 +8,9 @@
 			echo " O curso " . $_GET['txtNome'] . " ja esta cadastrado(a) no sistema </p>";
 		}else {
 			$sql = "INSERT INTO curso VALUES " . "(" . "'" . $_GET['numNumero'] . "','" . $_GET['txtNome'] . "','" . $_GET['txtSigla'] . "')";
-			echo $sql;
 			$res = pg_query($con, $sql);
 			$qtd = pg_affected_rows($res);
-			echo "<br>Foi inserido " . $qtd . " Linha";
+			header ("location: cad_Curso.php");
 		}
 	}else{
 		echo "Falha da Conexao";

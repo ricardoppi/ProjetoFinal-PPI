@@ -1,22 +1,30 @@
-<?php
-	require_once('conexao.php');
-	if(isset($_GET['txtLogin']) && isset($_GET['senha'])){
-		if($con){
-			$sql = "SELECT * FROM usuario where login = '" . $_GET['txtLogin'] . "'" . "AND senha = '" . md5($_GET['senha']) . "'";
-			$resultado = pg_query($con, $sql);
-			if(pg_num_rows($resultado) == 1){
-				$dados = pg_fetch_array($resultado);
-				header ("location: pagina_inicial.html");
-			}else{
-				header ("location: index.html");
-			}	
-		}else{
-			echo "CONEXAO INCORRETA";
-		}
-	}else{
-		echo "Login e senha incorretos, tente novamente!";
-		
-	}	
-pg_close($con);	
+<!DOCTYPE html>
+<html lang="pt-br">
 
-?>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projeto Final</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/logo-nav.css" rel="stylesheet">
+	<link href="css/center.css" rel="stylesheet">
+
+</head>
+
+<body>
+ <?php
+require_once('menu.php');
+?> 
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
