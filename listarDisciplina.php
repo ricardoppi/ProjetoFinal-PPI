@@ -15,6 +15,7 @@
 	}
 </script>
 <?php
+session_start();
 codigo();
 	function codigo () {
 		require_once('conexao.php');
@@ -26,16 +27,20 @@ codigo();
 				echo "<td align='center'> Codigo </td>";
 				echo "<td align='center'> Nome </td>";
 				echo "<td align='center'> Carga Horario - CH </td>";
-				echo "<td align='center'> Ação </td>";				
+				if($_SESSION['categoria'] == 'C'){	
+					echo "<td align='center'> Ação </td>";
+				}			
 			while($dados = pg_fetch_row($resultado)){
 				echo "<tr>";
 				echo "<td align='center' >" . $dados[0] . "</td>";
 				echo "<td align='center' >" . $dados[1] . "</td>";
 				echo "<td align='center' >" . $dados[2] . "</td>";
-				echo "<td align='center' >"; 
-					echo '<a href="alteraDisciplina.php?codigo=' . $dados[0] . '"><span class="glyphicon glyphicon-pencil"></span></a>';
-					echo '<span class="glyphicon glyphicon-remove" onclick="confirmaExclusao(\''.$dados[0].'\')"></span></a>';
-				echo "</td>";				
+				if($_SESSION['categoria'] == 'C'){	
+					echo "<td align='center' >"; 
+						echo '<a href="alteraCurso.php?numero=' . $dados[0] . '"><span class="glyphicon glyphicon-pencil"></span></a>';
+						echo '<span class="glyphicon glyphicon-remove" onclick="confirmaExclusao(\''.$dados[0].'\')"></span></a>';
+					echo "</td>";	
+				}				
 				echo "</tr>";
 			}
 			echo "</table>";
@@ -48,7 +53,7 @@ codigo();
 	<body>
 		</p>
 		</p>
-		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='cad_Disciplina.php' ">Voltar </button>
+		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='index.php' ">Voltar </button>
 		</p>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>		

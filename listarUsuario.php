@@ -16,6 +16,7 @@
 </script>	
 
 <?php
+session_start();
 matricula();
 	function matricula () {
 		require_once('conexao.php');
@@ -29,7 +30,9 @@ matricula();
 				echo "<td align='center'> Nome </td>";
 				echo "<td align='center'> Categoria </td>";
 				echo "<td align='center'> Situacao </td>";
-				echo "<td align='center'> Ação </td>";
+				if($_SESSION['categoria'] == 'C'){	
+					echo "<td align='center'> Ação </td>";
+				}
 			while($dados = pg_fetch_row($resultado)){
 				echo "<tr>";
 				echo "<td align='center' >" . $dados[0] . "</td>";
@@ -54,7 +57,7 @@ matricula();
 	<body>
 		</p>
 		</p>
-		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='cad_Usuario.php' ">Voltar </button>
+		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='index.php' ">Voltar </button>
 		</p>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>		

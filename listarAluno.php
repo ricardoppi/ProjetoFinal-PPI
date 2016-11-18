@@ -55,7 +55,7 @@ matricula();
 	<body>
 		</p>
 		</p>
-		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='cad_Aluno.php' ">Voltar </button>
+		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='index.php' ">Voltar </button>
 		</p>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>		

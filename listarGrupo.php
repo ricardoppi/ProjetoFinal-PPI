@@ -5,42 +5,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-	function confirmaExclusao (numero){
-		var menssagem = window.confirm('Deseja realmente excluir este Curso?');
+	function confirmaExclusao (id){
+		var menssagem = window.confirm('Deseja realmente excluir este Grupo?');
 		if(menssagem == false){
 			return false;
 		}else{
-			window.location="deletaCurso.php?numero="+numero;
+			window.location="deletaGrupo.php?id="+id;
 		}
 	}
 </script>
 <?php
-session_start();
-matricula();
-	function matricula () {
+grupo();
+	function grupo () {
 		require_once('conexao.php');
 		if($con){
-			$sql = "SELECT * FROM curso ORDER BY numero";
+			$sql = "SELECT * FROM grupo ORDER BY id";
 			$resultado = pg_query($con, $sql);
 			echo "<table border='4' >" ;
 				echo "<tr>";
-				echo "<td align='center'> Numero </td>";
+				echo "<td align='center'> ID </td>";
 				echo "<td align='center'> Nome </td>";
-				echo "<td align='center'> Sigla </td>";
-				if($_SESSION['categoria'] == 'C'){	
-					echo "<td align='center'> Ação </td>";
-				}	
+				echo "<td align='center'> Numero do Projeto </td>";
+				echo "<td align='center'> Ação </td>";				
 			while($dados = pg_fetch_row($resultado)){
 				echo "<tr>";
 				echo "<td align='center' >" . $dados[0] . "</td>";
 				echo "<td align='center' >" . $dados[1] . "</td>";
 				echo "<td align='center' >" . $dados[2] . "</td>";
-				if($_SESSION['categoria'] == 'C'){	
-					echo "<td align='center' >"; 
-						echo '<a href="alteraCurso.php?numero=' . $dados[0] . '"><span class="glyphicon glyphicon-pencil"></span></a>';
-						echo '<span class="glyphicon glyphicon-remove" onclick="confirmaExclusao(\''.$dados[0].'\')"></span></a>';
-					echo "</td>";	
-				}	
+				echo "<td align='center' >"; 
+					echo '<a href="alteraGrupo.php?id=' . $dados[0] . '"><span class="glyphicon glyphicon-pencil"></span></a>';
+					echo '<span class="glyphicon glyphicon-remove" onclick="confirmaExclusao(\''.$dados[0].'\')"></span></a>';
+				echo "</td>";				
 				echo "</tr>";
 			}
 			echo "</table>";
