@@ -4,7 +4,7 @@
 
 require_once('conexao.php');
 	if($con){
-		$sql = "DELETE FROM aluno WHERE matricula = '" . $_GET['matricula'] . "'";
+	$sql = "DELETE FROM projeto WHERE numero = '" . $_GET['numero'] . "'";
 		pg_query($con, $sql);
 		echo "<br>O Usuario foi deletado com sucesso. ";
 	}else{
@@ -18,7 +18,7 @@ pg_close($con);
 	<body>
 		</p>
 		</p>
-		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='cad_Aluno.php' ">Voltar </button>
+		<button class="btn btn-lg btn-default" type="button" onclick="window.location.href='cad_Projeto.php' ">Voltar </button>
 		</p>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>

@@ -4,44 +4,32 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-	function confirmaExclusao (codigo){
-		var menssagem = window.confirm('Deseja realmente excluir esta Disciplina?');
-		if(menssagem == false){
-			return false;
-		}else{
-			window.location="deletaDisciplina.php?codigo="+codigo;
-		}
-	}
-</script>
 <?php
 session_start();
-codigo();
-	function codigo () {
+relatorio1();
+	function relatorio1 () {
 		require_once('conexao.php');
 		if($con){
-			$sql = "SELECT * FROM disciplina ORDER BY codigo";
+			$sql = "SELECT aluno.matricula, aluno.nome, participa.nota
+											FROM aluno 
+												inner join participa on aluno.matricula = participa.matricula
+												inner join grupo on grupo.id = participa.id_grupo
+												inner join projeto on grupo.num_proj = projeto.numero
+												inner join curso on projeto.num_curso = curso.numero
+			WHERE curso.nome = '" . $_GET['Num_Curso'] . "' and projeto.ano = '" 
+									. $_GET['num_Ano'] .  "' and projeto.semestre = '" 
+									. $_GET['semestre'] . "' ORDER BY aluno.nome;";				
 			$resultado = pg_query($con, $sql);
 			echo "<table border='4' >" ;
 				echo "<tr>";
-				echo "<td align='center'> Codigo </td>";
+				echo "<td align='center'> Matricula </td>";
 				echo "<td align='center'> Nome </td>";
-				echo "<td align='center'> Carga Horario - CH </td>";
-				if($_SESSION['categoria'] == 'C'){	
-					echo "<td align='center'> Ação </td>";
-				}			
+				echo "<td align='center'> Nota </td>";		
 			while($dados = pg_fetch_row($resultado)){
 				echo "<tr>";
 				echo "<td align='center' >" . $dados[0] . "</td>";
 				echo "<td align='center' >" . $dados[1] . "</td>";
 				echo "<td align='center' >" . $dados[2] . "</td>";
-				if($_SESSION['categoria'] == 'C'){	
-					echo "<td align='center' >"; 
-						echo '<a href="alteraDisciplina.php?codigo=' . $dados[0] . '"><span class="glyphicon glyphicon-pencil"></span></a>';
-						echo '<span class="glyphicon glyphicon-remove" onclick="confirmaExclusao(\''.$dados[0].'\')"></span></a>';
-					echo "</td>";	
-				}				
-				echo "</tr>";
 			}
 			echo "</table>";
 		}

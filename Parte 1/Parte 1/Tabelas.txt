@@ -1,0 +1,43 @@
+﻿Nome do banco = projetointegrador;
+UserBD = senac;
+Senha = senac123;
+
+
+CREATE TABLE curso(
+	numero		integer not null,
+	nome		varchar(150) not null, 'obrigatorio'
+	sigla		char(3) not null, 'obrigatorio'
+	CONSTRAINT pknumero PRIMARY KEY (numero)
+);
+
+CREATE TABLE disciplina(
+	codigo		integer not null,
+	nome		varchar(80) not null, 'obrigatorio'
+	ch			integer not null, 'obrigatorio - Carga Horaria'
+	CONSTRAINT pkcodigo PRIMARY KEY (codigo)
+);
+
+CREATE TABLE aluno(
+	matricula	char(15) not null,
+	nome		varchar(80) not null, 'obrigatorio'
+	sexo		char(1) not null, 'obrigatorio; dominio = M e F'
+	dtnasc		date not null, 'obrigatorio'
+	cidade		varchar(40) not null, 'obrigatorio; cidade de nascimento'
+	uf			char(2) not null, 'obrigatorio; sigla da cidade onde nasceu'
+	CONSTRAINT pkmatricula PRIMARY KEY (matricula)
+);
+
+CREATE TABLE usuario(
+	login		varchar(20) not null,
+	senha		varchar(50) not null, 'obrigatorio; criptografar  com md5'
+	nome		varchar(80) not null,'obrigatorio; nome completo'
+	categoria	char(1) not null,'obrigatorio; C-coordenador, G-gerente do projetointegrador, P-professor'
+	situacao	char(1) not null,'obrigatorio; A-ativo, I-inativo'
+	CONSTRAINT pklogin PRIMARY KEY (login)
+);
+
+
+
+
+
+

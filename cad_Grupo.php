@@ -28,19 +28,19 @@ require_once('conexao.php');
 			<div class="row" >
 				<div class="form-group col-md-4">
 					<h2 class="form-signin-heading">Cadastrar Grupo</h2>
-					<label for="numID" >ID</label>
+					<label for="numID" class="sr-only">ID</label>
 					<input type="numeric" name="numID" class="form-control" placeholder="ID" required >
 				</div>
 			</div>
 			<div class="row" >
 				<div class="form-group col-md-4">
-					<label for="txtNome" >Nome</label>
+					<label for="txtNome" class="sr-only">Nome</label>
 					<input type="text" name="txtNome" class="form-control" placeholder="NOME" required >
 				</div>
 			</div>			
 			<div class="row">
 				<div class="form-group col-md-4">	
-				<label for="txtModulo">Projeto</label>				
+				<label for="txtModulo" class="sr-only">Projeto</label>				
 				<?php
 					$sql = 'SELECT modulo,ano,semestre, projeto.numero, num_curso, curso.nome
 								FROM projeto

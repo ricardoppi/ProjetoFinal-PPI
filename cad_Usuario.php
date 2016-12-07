@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <title>Projeto Final</title>
 	
@@ -50,7 +47,7 @@ require_once('menu.php');
 			<div class="row">
 				<div class="form-group col-md-4">					
 					<label for="txtCategoria">Categoria</label>
-					<select name="txtCategoria">	
+					<select name="txtCategoria" class="form-control">	
 						<option value="C">Coordenador </option>
 						<option value="G">Gerente de Projeto Integrador </option>
 						<option value="P">Professor </option>
@@ -74,7 +71,9 @@ require_once('menu.php');
 		</form>
     </div>
 </div>
+	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+	
 
 </body>
 

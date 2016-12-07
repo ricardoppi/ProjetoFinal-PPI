@@ -13,7 +13,7 @@ require_once('conexao.php');
 			$sql= "SELECT * FROM disciplina WHERE codigo = '" . $_GET['codigo'] . "'";
 			$res = pg_query($con, $sql);
 			$dados = pg_fetch_row($res);
-		}	
+		}
 		if(isset($_GET['alterar'])){
 			$sql = "UPDATE disciplina SET nome = '" . $_GET['txtNome'] . "'"
 										. ", ch = " . $_GET['numCH']							

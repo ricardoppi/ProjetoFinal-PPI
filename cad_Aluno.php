@@ -50,16 +50,9 @@ require_once('menu.php');
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-4">					
-					<label for="rdSexo">Sexo</label>
-					<input type="radio" name="rdSexo" value="M" /> Masculino
-					<input type="radio" name="rdSexo" value="F" /> Feminino
-				</div>
-			</div>
-			<div class="row">
 				<div class="form-group col-md-4">
 					<label for="UF">UF</label>				
-					<select name="UF">	
+					<select name="UF" class="form-control">	
 						<option value="AC">AC </option>
 						<option value="AP">AP </option>
 						<option value="AM">AM </option>
@@ -87,6 +80,13 @@ require_once('menu.php');
 						<option value="SE">SE </option>
 						<option value="TO">TO </option>
 					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">					
+					<label for="rdSexo">Sexo</label>
+					<input type="radio" name="rdSexo" value="M" /> Masculino
+					<input type="radio" name="rdSexo" value="F" /> Feminino
 				</div>
 			</div>
 			

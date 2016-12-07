@@ -18,9 +18,45 @@
 </head>
 
 <body>
- <?php
+</br></br></br></br>
+<?php
+echo "<div class='container'>";
 require_once('menu.php');
+
+grupo();
+	function grupo () {
+		require_once('conexao.php');
+		if($con){
+			$sql = "SELECT aluno.nome, curso.nome, grupo.id, participa.nota,aluno.matricula
+											FROM aluno 
+												inner join participa on aluno.matricula = participa.matricula
+												inner join grupo on grupo.id = participa.id_grupo
+												inner join projeto on grupo.num_proj = projeto.numero
+												inner join curso on projeto.num_curso = curso.numero;";
+			$resultado = pg_query($con, $sql);
+			echo "<table border='4' >" ;
+				echo "<tr>";
+				echo "<td align='center'><strong> Nome do Aluno </strong></td>";
+				echo "<td align='center'><strong> Nome do Curso </strong></td>";
+				echo "<td align='center'><strong> Nota </strong></td>";
+				echo "<td align='center'><strong> Link do site </strong></td>";
+				echo "</tr>";
+			while($dados = pg_fetch_row($resultado)){
+				echo "<tr>";
+				echo "<td align='center' >" . $dados[0] . "</td>";
+				echo "<td align='center' >" . $dados[1] . "</td>";
+				echo "<td align='center' >" . $dados[3] . "</td>";
+				echo "<td align='center' ><a href='http://si.projetointegrador.com.br/~".$dados[4]."'>link</a></td>";
+				echo "</tr>";
+
+			}
+			echo "</table>";
+		}
+	pg_close($con);
+	}
+echo "</div>";	
 ?> 
+
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
