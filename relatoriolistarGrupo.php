@@ -24,10 +24,10 @@ require_once('menu.php');
 ?> 
 <div id="main" class="container-fluid" >   
    <div class="container">
-		<form class="formCadUsuario" method="GET" action="emitir_Relatorio1.php" onsubmit="return confirmaExclusao()">
+		<form class="formCadUsuario" method="GET" action="Relatorio_listar_Grupo.php">
 			<div class="row" >
 				<div class="form-group col-md-4">
-					<h2 class="form-signin-heading">Relat&oacute;rio Curso</h2>
+					<h2 class="form-signin-heading">Relat&oacute;rio Listar Grupo</h2>
 					<label for="codigo" >Curso</label>
 					<?php
 						$sql = 'SELECT * FROM curso';
@@ -58,11 +58,11 @@ require_once('menu.php');
 				</div>
 			</div>
 			
-	<div class="row">
-		<div class="form-group col-md-6">
-			<button class="btn btn-lg btn-primary" type="submit">Listar </button>
-		</div>
-	</div>				
+			<div class="row">
+				<div class="form-group col-md-6">
+					<button class="btn btn-lg btn-primary" type="submit">Listar </button>
+				</div>
+			</div>				
 		</form>
 	</div>
 </div>	

@@ -4,33 +4,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<h2>Relacao de Aluno de um determinado Curso</h2>
+<h2>Lista de Projeto do Aluno Selecionado</h2>
 <?php
+
 session_start();
 relatorio1();
 	function relatorio1 () {
-		require_once('conexao.php');
+		require_once('conexao.php'); 
 		if($con){
-			$sql = "SELECT aluno.matricula, aluno.nome, participa.nota
-											FROM aluno 
-												inner join participa on aluno.matricula = participa.matricula
-												inner join grupo on grupo.id = participa.id_grupo
-												inner join projeto on grupo.num_proj = projeto.numero
-												inner join curso on projeto.num_curso = curso.numero
-			WHERE curso.nome = '" . $_GET['Num_Curso'] . "' and projeto.ano = '" 
-									. $_GET['num_Ano'] .  "' and projeto.semestre = '" 
-									. $_GET['semestre'] . "' ORDER BY aluno.nome;";				
+			$sql = "SELECT projeto.tema FROM aluno 
+									inner join participa on aluno.matricula = participa.matricula
+									inner join grupo on grupo.id = participa.id_grupo
+									inner join projeto on grupo.num_proj = projeto.numero
+									inner join curso on projeto.num_curso = curso.numero
+									where aluno.nome = '" . $_GET['nome_aluno'] . "'";				
 			$resultado = pg_query($con, $sql);
 			echo "<table border='4' >" ;
 				echo "<tr>";
-				echo "<td align='center'> Matricula </td>";
-				echo "<td align='center'> Nome </td>";
-				echo "<td align='center'> Nota </td>";		
+				echo "<td align='center'> Projeto </td>";
+				echo "</tr>";
 			while($dados = pg_fetch_row($resultado)){
 				echo "<tr>";
 				echo "<td align='center' >" . $dados[0] . "</td>";
-				echo "<td align='center' >" . $dados[1] . "</td>";
-				echo "<td align='center' >" . $dados[2] . "</td>";
+				echo "</tr>";
 			}
 			echo "</table>";
 		}

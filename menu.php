@@ -35,6 +35,9 @@ session_start();
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relat&oacute;rios <span class="caret"></span></a>
 					<ul class="dropdown-menu">								
 						<li><a href="emitirRelatorio1.php">Relat&oacute;rio1</a></li>	
+						<li><a href="emitirProjeto.php">Relat&oacute;rio Projeto</a></li>
+						<li><a href="relatoriolistarGrupo.php">Relat&oacute;rio Grupo</a></li>
+						<li><a href="relatoriolistarAluno.php">Relat&oacute;rio Aluno</a></li>
 					</ul>
 				</li>					
 					<ul class="nav navbar-nav navbar-right">
@@ -63,7 +66,9 @@ session_start();
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relat&oacute;rios <span class="caret"></span></a>
 					<ul class="dropdown-menu">								
-						<li><a href="emitirRelatorio1.php">Relat&oacute;rio1</a></li>	
+						<li><a href="emitirRelatorio1.php">Relat&oacute;rio1</a></li>
+						<li><a href="emitirProjeto.php">Relat&oacute;rio Projeto</a></li>
+						<li><a href="relatoriolistarGrupo.php">Relat&oacute;rio Grupo</a></li>
 					</ul>
 				</li>				
 					<li><a href="tabela_Composto.php">Descri&ccedil;&atilde;o das Atividades</a></li>											

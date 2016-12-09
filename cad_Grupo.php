@@ -40,7 +40,7 @@ require_once('conexao.php');
 			</div>			
 			<div class="row">
 				<div class="form-group col-md-4">	
-				<label for="txtModulo" class="sr-only">Projeto</label>				
+				<label for="txtModulo" >Projeto</label>				
 				<?php
 					$sql = 'SELECT modulo,ano,semestre, projeto.numero, num_curso, curso.nome
 								FROM projeto

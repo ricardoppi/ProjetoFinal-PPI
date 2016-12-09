@@ -24,15 +24,15 @@ require_once('menu.php');
 ?> 
 <div id="main" class="container-fluid" >   
    <div class="container">
-		<form class="formCadUsuario" method="GET" action="emitir_Relatorio1.php" onsubmit="return confirmaExclusao()">
+		<form class="formCadUsuario" method="GET" action="relatorio_listar_Aluno.php">
 			<div class="row" >
 				<div class="form-group col-md-4">
-					<h2 class="form-signin-heading">Relat&oacute;rio Curso</h2>
-					<label for="codigo" >Curso</label>
+					<h2 class="form-signin-heading">Listar Aluno</h2>
+					<label for="codigo" >Nome do Aluno</label>
 					<?php
-						$sql = 'SELECT * FROM curso';
+						$sql = 'SELECT * FROM aluno';
 						$res = pg_query($con, $sql);					
-						echo '<select name="Num_Curso" class="form-control">';
+						echo '<select name="nome_aluno" class="form-control">';
 						while($linha = pg_fetch_array($res)){
 							echo '<option value="'.$linha[1].'">'.$linha[1].'</option>';
 									
@@ -41,23 +41,7 @@ require_once('menu.php');
 						echo '</select>	';					
 					?>				
 				</div>
-			</div>		
-			<div class="row">
-				<div class="form-group col-md-4">					
-					<label for="num_Ano" >Ano</label>
-					<input type="numeric"  name="num_Ano"  class="form-control" placeholder="ANO" required>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-4">					
-					<label for="semestre">Semestre</label>
-					<select name="semestre" class="form-control">	
-						<option value="1">1° Semestre </option>
-						<option value="2">2° Semestre</option>
-					</select>
-				</div>
-			</div>
-			
+			</div>				
 	<div class="row">
 		<div class="form-group col-md-6">
 			<button class="btn btn-lg btn-primary" type="submit">Listar </button>

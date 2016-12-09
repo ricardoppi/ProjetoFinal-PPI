@@ -21,7 +21,7 @@ SELECT aluno.nome, curso.nome, grupo.id
 			inner join projeto on grupo.num_proj = projeto.numero
 			inner join curso on projeto.num_curso = curso.numero;
 
-SELECT aluno.matricula, aluno.nome, participa.nota
+SELECT aluno.matricula, aluno.nome, participa.nota, curso.nome
 		FROM aluno
 			inner join participa on aluno.matricula = participa.matricula
 			inner join grupo on grupo.id = participa.id_grupo
@@ -31,6 +31,18 @@ SELECT aluno.matricula, aluno.nome, participa.nota
 
 select count(ano) from projeto where ano = '2016';
 
-SELECT * FROM projeto ORDER BY numero;
+select * from grupo;
+select * from projeto;
+select * from curso;
+select * from disciplina;
 
-DELETE FROM aluno WHERE matricula = '6';
+
+
+SELECT projeto.numero, projeto.ano, projeto.semestre, projeto.modulo, disciplina.nome, composto.desc_atividade,
+					projeto.dt_inicio, projeto.dt_termino, projeto.tema, projeto.descricao, curso.nome
+								FROM projeto 
+								inner join curso on projeto.num_curso = curso.numero
+								inner join composto on composto.num_proj = projeto.numero
+								inner join disciplina on projeto.num_curso = curso.numero
+								WHERE projeto.modulo = 'III';
+
